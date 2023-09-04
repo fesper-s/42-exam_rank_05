@@ -1,13 +1,9 @@
-#ifndef WARLOCK_HPP
-# define WARLOCK_HPP
+#include <iostream>
 
-# include <iostream>
-
-class Warlock
-{
+class Warlock {
 	private:
-		std::string _name;
-		std::string _title;
+		std::string name;
+		std::string title;
 
 		Warlock();
 		Warlock(const Warlock &src);
@@ -22,5 +18,3 @@ class Warlock
 		void setTitle(const std::string &title);
 		void introduce() const;
 };
-
-#endif
