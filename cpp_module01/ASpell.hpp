@@ -1,5 +1,8 @@
+#pragma once
 #include <iostream>
 #include "ATarget.hpp"
+
+class ATarget;
 
 class ASpell {
 	protected:
@@ -18,5 +21,5 @@ class ASpell {
 
 		virtual ASpell *clone() const = 0;
 
-		void launch(const ATarget &target);
+		void launch(const ATarget &target) const;
 };
