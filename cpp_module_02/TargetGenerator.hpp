@@ -1,10 +1,10 @@
 #include "ATarget.hpp"
+#include <iostream>
 #include <map>
 
-class TargetGenerator
-{
+class TargetGenerator {
 	private:
-		std::map<std::string, ATarget *> _target;
+		std::map<std::string, ATarget *> target;
 
 		TargetGenerator(const TargetGenerator &src);
 
@@ -14,6 +14,6 @@ class TargetGenerator
 		~TargetGenerator();
 
 		void learnTargetType(ATarget *target);
-		void forgetTargetType(std::string const &target);
-		ATarget *createTarget(std::string const &target);
+		void forgetTargetType(const std::string &type);
+		ATarget *createTarget(const std::string &type);
 };

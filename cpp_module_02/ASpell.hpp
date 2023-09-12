@@ -16,8 +16,8 @@ class ASpell {
 
 		ASpell &operator=(const ASpell &rhs);
 
-		std::string getName() const;
-		std::string getEffects() const;
+		const std::string &getName() const;
+		const std::string &getEffects() const;
 
 		virtual ASpell *clone() const = 0;
 
