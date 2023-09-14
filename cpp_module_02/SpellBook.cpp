@@ -14,17 +14,17 @@ SpellBook &SpellBook::operator=(const SpellBook &rhs) {
 	return *this;
 }
 
-void SpellBook::learnSpell(ASpell *spell) {
+void SpellBook::learnSpell(ASpell* spell) {
 	if (spell)
 		this->spells[spell->getName()] = spell;
 }
 
-void SpellBook::forgetSpell(const std::string &spellName) {
+void SpellBook::forgetSpell(std::string const & spellName) {
 	if (this->spells.find(spellName) != this->spells.end())
 		this->spells.erase(this->spells.find(spellName));
 }
 
-ASpell *SpellBook::createSpell(const std::string &spellName) {
+ASpell* SpellBook::createSpell(std::string const & spellName) {
 	ASpell *buffer = NULL;
 	if (this->spells.find(spellName) != this->spells.end())
 		buffer = this->spells[spellName];

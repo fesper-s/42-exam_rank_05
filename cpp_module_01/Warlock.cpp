@@ -47,7 +47,7 @@ void Warlock::forgetSpell(std::string spellName) {
 		this->spellBook.erase(this->spellBook.find(spellName));
 }
 
-void Warlock::launchSpell(std::string spellName, const ATarget &target) {
+void Warlock::launchSpell(std::string spellName, ATarget &target) {
 	if (this->spellBook.find(spellName) != this->spellBook.end())
 		this->spellBook[spellName]->launch(target);
 }

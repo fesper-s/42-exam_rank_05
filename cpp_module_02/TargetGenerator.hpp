@@ -1,5 +1,5 @@
+#pragma once
 #include "ATarget.hpp"
-#include <iostream>
 #include <map>
 
 class TargetGenerator {
@@ -13,7 +13,7 @@ class TargetGenerator {
 		TargetGenerator();
 		~TargetGenerator();
 
-		void learnTargetType(ATarget *target);
-		void forgetTargetType(const std::string &type);
-		ATarget *createTarget(const std::string &type);
+		void learnTargetType(ATarget*);
+		void forgetTargetType(std::string const &);
+		ATarget* createTarget(std::string const &);
 };

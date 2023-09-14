@@ -1,5 +1,5 @@
+#pragma once
 #include "ASpell.hpp"
-#include <iostream>
 #include <map>
 
 class SpellBook {
@@ -13,7 +13,7 @@ class SpellBook {
 		SpellBook();
 		~SpellBook();
 
-		void learnSpell(ASpell *spell);
-		void forgetSpell(const std::string &spellName);
-		ASpell *createSpell(const std::string &spellName);
+		void learnSpell(ASpell*);
+		void forgetSpell(std::string const &);
+		ASpell* createSpell(std::string const &);
 };

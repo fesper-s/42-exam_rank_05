@@ -14,17 +14,17 @@ TargetGenerator &TargetGenerator::operator=(const TargetGenerator &rhs) {
 	return *this;
 }
 
-void TargetGenerator::learnTargetType(ATarget *target) {
+void TargetGenerator::learnTargetType(ATarget* target) {
 	if (target)
 		this->target[target->getType()] = target;
 }
 
-void TargetGenerator::forgetTargetType(const std::string &type) {
+void TargetGenerator::forgetTargetType(std::string const & type) {
 	if (this->target.find(type) != this->target.end())
 		this->target.erase(this->target.find(type));
 }
 
-ATarget *TargetGenerator::createTarget(const std::string &type) {
+ATarget* TargetGenerator::createTarget(std::string const & type) {
 	ATarget *buffer = NULL;
 	if (this->target.find(type) != this->target.end())
 		buffer = this->target[type];
