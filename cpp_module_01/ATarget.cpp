@@ -21,5 +21,5 @@ const std::string &ATarget::getType() const {
 }
 
 void ATarget::getHitBySpell(const ASpell &spell) const {
-	std::cout << this->type << " has been " << spell.getEffects() << "!" << std::endl;
+	std::cout << this->type <<  " has been " << spell.getEffects() << "!" << std::endl;
 }

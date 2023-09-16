@@ -1,22 +1,25 @@
-#include <iostream>
-#include "ASpell.hpp"
-#include "ATarget.hpp"
-#include <map>
+#ifndef WARLOCK_HPP
+# define WARLOCK_HPP
+
+# include <iostream>
+# include "ASpell.hpp"
+# include "ATarget.hpp"
+# include <vector>
 
 class Warlock {
 	private:
 		std::string name;
 		std::string title;
-		std::map<std::string, ASpell *> spellBook;
+		std::vector<ASpell *> spellBook;
 
 		Warlock();
 		Warlock(const Warlock &src);
 
 		Warlock &operator=(const Warlock &rhs);
-	public:		
+	public:
 		Warlock(const std::string &name, const std::string &title);
-		~Warlock();
-		
+		virtual ~Warlock();
+
 		const std::string &getName() const;
 		const std::string &getTitle() const;
 		void setTitle(const std::string &title);
@@ -24,5 +27,7 @@ class Warlock {
 		void introduce() const;
 		void learnSpell(ASpell *spell);
 		void forgetSpell(std::string spellName);
-		void launchSpell(std::string spellName, ATarget &target);
+		void launchSpell(std::string spellName, const ATarget &target);
 };
+
+#endif

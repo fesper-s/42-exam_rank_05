@@ -1,6 +1,7 @@
-#pragma once
-#include <iostream>
-#include "ASpell.hpp"
+#ifndef ATARGET_HPP
+# define ATARGET_HPP
+
+# include <iostream>
 
 class ASpell;
 
@@ -17,7 +18,11 @@ class ATarget {
 
 		const std::string &getType() const;
 
-		virtual ATarget *clone() const = 0;
-
 		void getHitBySpell(const ASpell &spell) const;
+
+		virtual ATarget *clone() const = 0;
 };
+
+# include "ASpell.hpp"
+
+#endif
