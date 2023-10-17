@@ -1,23 +1,22 @@
-#ifndef SPELLBOOK_HPP
-# define SPELLBOOK_HPP
+#pragma once
 
-# include "ASpell.hpp"
-# include <vector>
+#include "ASpell.hpp"
+#include <map>
 
-class SpellBook {
-	private:
-		std::vector<ASpell *> spellBook;
+class SpellBook
+{
+    private:
+        std::map<std::string, ASpell *> arr_spell;
 
-		SpellBook(const SpellBook &src);
+        SpellBook(SpellBook const &other);
+        SpellBook &operator=(SpellBook const &other);
 
-		SpellBook &operator=(const SpellBook &rhs);
-	public:
-		SpellBook();
-		virtual ~SpellBook();
+    public:
+        SpellBook();
+        ~SpellBook();
 
-		void learnSpell(ASpell *spell);
-		void forgetSpell(const std::string &spellName);
-		ASpell *createSpell(const std::string &spellName);
+        void learnSpell(ASpell *aspell_ptr);
+        void forgetSpell(std::string const &name);
+        ASpell* createSpell(std::string const &name);
+
 };
-
-#endif

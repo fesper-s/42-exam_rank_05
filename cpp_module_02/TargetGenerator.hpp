@@ -1,23 +1,21 @@
-#ifndef TARGETGENERATOR_HPP
-# define TARGETGENERATOR_HPP
+#pragma once
 
-# include "ATarget.hpp"
-# include <vector>
+#include "ATarget.hpp"
+#include <map>
 
-class TargetGenerator {
-	private:
-		std::vector<ATarget *> target;
+class TargetGenerator
+{
+    private:
+        std::map<std::string, ATarget *> arr_target;
 
-		TargetGenerator(const TargetGenerator &src);
+        TargetGenerator(TargetGenerator const &other);
+        TargetGenerator &operator=(TargetGenerator const &other);
 
-		TargetGenerator &operator=(const TargetGenerator &rhs);
-	public:
-		TargetGenerator();
-		virtual ~TargetGenerator();
+    public:
+        TargetGenerator();
+        ~TargetGenerator();
 
-		void learnTargetType(ATarget *target);
-		void forgetTargetType(const std::string &type);
-		ATarget *createTarget(const std::string &type);
+        void learnTargetType(ATarget *target_ptr);
+        void forgetTargetType(std::string const &name);
+        ATarget* createTarget(std::string const &name);
 };
-
-#endif

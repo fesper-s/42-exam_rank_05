@@ -1,34 +1,33 @@
-#ifndef WARLOCK_HPP
-# define WARLOCK_HPP
+#pragma once
 
-# include <iostream>
-# include "ASpell.hpp"
-# include "ATarget.hpp"
-# include <vector>
-# include "SpellBook.hpp"
+#include <iostream>
+#include "ASpell.hpp"
+#include "ATarget.hpp"
+#include "SpellBook.hpp"
 
-class Warlock {
-	private:
-		std::string name;
-		std::string title;
-		SpellBook spellBook;
+class Warlock
+{
+    private:
+        std::string name;
+        std::string title;
 
-		Warlock();
-		Warlock(const Warlock &src);
+        Warlock();
+        Warlock(Warlock const &other);
+        Warlock &operator=(Warlock const &other);
 
-		Warlock &operator=(const Warlock &rhs);
-	public:
-		Warlock(const std::string &name, const std::string &title);
-		virtual ~Warlock();
+        SpellBook book;
+    public:
+        Warlock(std::string const &name, std::string const &title);
+        ~Warlock();
 
-		const std::string &getName() const;
-		const std::string &getTitle() const;
-		void setTitle(const std::string &title);
+        std::string const &getName() const;
+        std::string const &getTitle() const;
 
-		void introduce() const;
-		void learnSpell(ASpell *spell);
-		void forgetSpell(std::string spellName);
-		void launchSpell(std::string spellName, const ATarget &target);
+        void setTitle(std::string const &title);
+
+        void introduce() const;
+
+        void learnSpell(ASpell *aspell_ptr);
+        void forgetSpell(std::string name);
+        void launchSpell(std::string name, ATarget const &atarget_ref);
 };
-
-#endif
