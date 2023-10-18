@@ -4,25 +4,24 @@
 
 class ATarget;
 
-class ASpell
-{
-    private:
-        std::string name;
-        std::string effects;
+class ASpell {
+	protected:
+		std::string name;
+		std::string effects;
+	public:
+		ASpell();
+		ASpell(const std::string &name, const std::string &effects);
+		ASpell(const ASpell &src);
+		virtual ~ASpell();
 
-    public:
-        ASpell();
-        ASpell(std::string const &name, std::string const &effects);
-        ASpell(ASpell const &other);
-        ASpell &operator=(ASpell const &other);
-        virtual ~ASpell();
+		ASpell &operator=(const ASpell &rhs);
 
-        std::string const &getName() const;
-        std::string const &getEffects() const;
+		const std::string &getName() const;
+		const std::string &getEffects() const;
 
-        void launch(ATarget const &atarget_ref) const;
+		void launch(const ATarget &target) const;
 
-        virtual ASpell *clone() const = 0;
+		virtual ASpell *clone() const = 0;
 };
 
 #include "ATarget.hpp"

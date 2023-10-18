@@ -3,20 +3,18 @@
 #include "ASpell.hpp"
 #include <map>
 
-class SpellBook
-{
-    private:
-        std::map<std::string, ASpell *> arr_spell;
+class SpellBook {
+	private:
+		std::map<std::string, ASpell *> spells;
 
-        SpellBook(SpellBook const &other);
-        SpellBook &operator=(SpellBook const &other);
+		SpellBook(const SpellBook &src);
 
-    public:
-        SpellBook();
-        ~SpellBook();
+		SpellBook &operator=(const SpellBook &rhs);
+	public:
+		SpellBook();
+		~SpellBook();
 
-        void learnSpell(ASpell *aspell_ptr);
-        void forgetSpell(std::string const &name);
-        ASpell* createSpell(std::string const &name);
-
+		void learnSpell(ASpell *spell);
+		void forgetSpell(const std::string &spellName);
+		ASpell *createSpell(const std::string &spellName);
 };

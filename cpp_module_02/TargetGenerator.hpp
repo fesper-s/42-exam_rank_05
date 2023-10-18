@@ -3,19 +3,18 @@
 #include "ATarget.hpp"
 #include <map>
 
-class TargetGenerator
-{
-    private:
-        std::map<std::string, ATarget *> arr_target;
+class TargetGenerator {
+	private:
+		std::map<std::string, ATarget *> target;
 
-        TargetGenerator(TargetGenerator const &other);
-        TargetGenerator &operator=(TargetGenerator const &other);
+		TargetGenerator(const TargetGenerator &src);
 
-    public:
-        TargetGenerator();
-        ~TargetGenerator();
+		TargetGenerator &operator=(const TargetGenerator &rhs);
+	public:
+		TargetGenerator();
+		~TargetGenerator();
 
-        void learnTargetType(ATarget *target_ptr);
-        void forgetTargetType(std::string const &name);
-        ATarget* createTarget(std::string const &name);
+		void learnTargetType(ATarget *target_ptr);
+		void forgetTargetType(const std::string &type);
+		ATarget *createTarget(const std::string &type);
 };

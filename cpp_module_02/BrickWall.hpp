@@ -2,11 +2,10 @@
 
 #include "ATarget.hpp"
 
-class BrickWall: public ATarget
-{
-    public:
-        BrickWall();
-        ~BrickWall();
+class BrickWall : public ATarget {
+	public:
+		BrickWall();
+		~BrickWall();
 
-        virtual ATarget *clone() const;
+		virtual ATarget *clone() const;
 };

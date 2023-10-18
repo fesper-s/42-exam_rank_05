@@ -5,29 +5,26 @@
 #include "ATarget.hpp"
 #include <map>
 
-class Warlock
-{
-    private:
-        std::string name;
-        std::string title;
+class Warlock {
+	private:
+		std::string name;
+		std::string title;
+		std::map<std::string, ASpell *> spells;
 
-        Warlock();
-        Warlock(Warlock const &other);
-        Warlock &operator=(Warlock const &other);
+		Warlock();
+		Warlock(const Warlock &src);
 
-        std::map<std::string, ASpell *> arr;
-    public:
-        Warlock(std::string const &name, std::string const &title);
-        ~Warlock();
+		Warlock &operator=(Warlock const &rhs);
+	public:
+		Warlock(const std::string &name, const std::string &title);
+		~Warlock();
 
-        std::string const &getName() const;
-        std::string const &getTitle() const;
+		const std::string &getName() const;
+		const std::string &getTitle() const; 
+		void setTitle(const std::string &title);
 
-        void setTitle(std::string const &title);
-
-        void introduce() const;
-
-        void learnSpell(ASpell *aspell_ptr);
-        void forgetSpell(std::string name);
-        void launchSpell(std::string name, ATarget const &atarget_ref);
+		void introduce() const;
+		void learnSpell(ASpell *spell);
+		void forgetSpell(std::string spellName);
+		void launchSpell(std::string spellName, const ATarget &target);
 };

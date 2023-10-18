@@ -4,23 +4,22 @@
 
 class ASpell;
 
-class ATarget
-{
-    private:
-        std::string type;
-    
-    public:
-        ATarget();
-        ATarget(std::string const &type);
-        ATarget(ATarget const &other);
-        ATarget &operator=(ATarget const &other);
-        virtual ~ATarget();
+class ATarget {
+	protected:
+		std::string type;
+	public:
+		ATarget();
+		ATarget(const ATarget &src);
+		ATarget(const std::string &type);
+		virtual ~ATarget();
 
-        std::string const &getType() const;
+		ATarget &operator=(const ATarget &rhs);
+		
+		const std::string &getType() const;
 
-        void getHitBySpell(ASpell const &aspell_ref) const;
+		void getHitBySpell(const ASpell &spell) const;
 
-        virtual ATarget *clone() const = 0;
+		virtual ATarget *clone() const = 0;
 };
 
 #include "ASpell.hpp"
